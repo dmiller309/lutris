@@ -4,7 +4,7 @@ Installing Lutris
 Requirements
 ------------
 
-Lutris should work on any Gnome system, the following depencies should be
+Lutris should work on any Gnome system, the following dependencies should be
 installed:
 
     * python > 3.4
@@ -33,7 +33,7 @@ USE THE DEVELOPMENT VERSION, JUST RUN IT FROM THE SOURCE DIR ITSELF.
 ***********************************************************
 
 **Warning:** there is no way to cleanly uninstall programs installed with
-setup.py other than manuall deleting the created files. Prefer installing
+setup.py other than manually deleting the created files. Prefer installing
 Lutris through distribution packages or run it directly from the source
 directory::
 
