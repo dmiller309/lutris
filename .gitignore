@@ -5,6 +5,7 @@
 /share/lutris/ui/lutris-window.ui~
 nbproject
 build
+.idea/*.iml
 .project
 .pydevproject
 .settings
@@ -20,3 +21,4 @@ pga.db
 tests/coverage/*
 /dist
 /lutris.egg-info
+/lutris_*.snap
