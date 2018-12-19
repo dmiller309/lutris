@@ -1,0 +1,130 @@
+name: lutris
+version: '3.9.5'
+summary: Install and play any video game easily
+description: |
+  Lutris is a gaming platform for GNU/Linux. Its goal is to make
+  gaming on Linux as easy as possible by taking care of installing
+  and setting up the game for the user. The only thing you have to
+  do is play the game. It aims to support every game that is playable
+  on Linux.
+
+base: core18
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
+icon: ./share/lutris/media/lutris.svg
+
+apps:
+  lutris:
+    command: bin/lutris
+    desktop: share/applications/lutris.desktop
+    plugs:
+      - dbus
+      - desktop
+      - home
+      - network
+      - pulseaudio
+      - x11
+
+slots:
+  dbus-lutris:
+    interface: dbus
+    bus: session
+    name: net.lutris
+
+parts:
+  lutris:
+    plugin: python
+    source: .
+    python-version: python3
+    build-packages:
+      - cabextract
+      - curl
+      - gir1.2-gdkpixbuf-2.0
+      - gir1.2-gnomedesktop-3.0
+      - gir1.2-gtk-3.0
+      - lib32gcc1
+      - libc6-i386
+      - libcairo2
+      - libcairo2-dev
+      - libgirepository-1.0-1
+      - libgirepository1.0-dev
+      - libglib2.0-0
+      - libglib2.0-dev
+      - p7zip
+      - pkg-config
+      - psmisc
+      - python-all-dev
+      - python3
+      - python3-dev
+      - python3-cairo
+      - python3-cairo-dev
+      - python3-evdev
+      - python3-gi
+      - python3-gi-cairo
+      - python3-setuptools
+      - python3-yaml
+      - python-gi
+      - python-gi-cairo
+      - unrar
+      - unzip
+    stage-packages:
+      - adwaita-icon-theme
+      - appmenu-qt
+      - cabextract
+      - curl
+      - dmz-cursor-theme
+      - fcitx-frontend-gtk3
+      - fcitx-frontend-qt5
+      - gir1.2-gdkpixbuf-2.0
+      - gir1.2-gnomedesktop-3.0
+      - gir1.2-gtk-3.0
+      - gnome-terminal
+      - gnome-themes-standard
+      - ibus-gtk
+      - ibus-gtk3
+      - lib32gcc1
+      - libappindicator1
+      - libappindicator3-1
+      - libc6-i386
+      - libcairo2
+      - libgdk-pixbuf2.0-0
+      - libgirepository-1.0-1
+      - libglib2.0-0
+      - libglib2.0-bin
+      - libgtk2.0-0
+      - libgtk2.0-bin
+      - libgtk-3-0
+      - libgtk-3-bin
+      - libibus-1.0-5
+      - libqt4-svg # for loading icon themes which are svg
+      - libqt5gui5
+      - libqt5svg5 # for loading icon themes which are svg
+      - libqtgui4
+      - libxkbcommon0  # XKB_CONFIG_ROOT
+      - light-themes
+      - locales-all
+      - p7zip
+      - psmisc
+      - python3
+      - python3-cairo
+      - python3-evdev
+      - python3-gi
+      - python3-gi-cairo
+      - python3-setuptools
+      - python3-yaml
+      - python-gi
+      - python-gi-cairo
+      - shared-mime-info
+      - sni-qt
+      - try: [appmenu-qt5] # not available on core18
+      - ttf-ubuntu-font-family
+      - unity-gtk2-module
+      - unity-gtk3-module
+      - unrar
+      - unzip
+      - xdg-user-dirs
+
+# Useful commands for snapping:
+# time ( snapcraft clean && snapcraft )
+# time sudo snap remove lutris && sudo snap install --dangerous scelight_3.9.5_amd64.snap
+# sudo tail -f /var/log/syslog
