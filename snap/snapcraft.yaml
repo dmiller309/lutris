@@ -23,6 +23,7 @@ apps:
       - home
       - network
       - pulseaudio
+      - unity7 # for system tray
       - x11
 
 slots:
@@ -41,16 +42,22 @@ parts:
       lutris: /usr/lib/python3/dist-packages/lutris
       share: usr/share
     stage-packages:
+      - cabextract
+      - curl
       - gir1.2-gdkpixbuf-2.0
       - gir1.2-gtk-3.0
       - gnome-terminal
+      - libappindicator3-1
       - p7zip
+      - psmisc
       - python3-evdev
       - python3-gi
       - python3-gi-cairo
       - python3-yaml
       - python-gi
       - python-gi-cairo
+      - unrar
+      - unzip
       - wine # wine stage-packages don't work because ???
       - wine-development # also doesn't work in Snap?
       - winetricks
