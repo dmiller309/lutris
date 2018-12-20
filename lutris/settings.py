@@ -12,18 +12,32 @@ AUTHORS = ["Mathieu Comandon <strycore@gmail.com>",
 ARTISTS = ["Ludovic Soulié <contact@ludal.net>"]
 
 # Paths
-CONFIG_DIR = os.path.join(GLib.get_user_config_dir(), 'lutris')
+is_snap = 'SNAP' in os.environ and 'SNAP_USER_DATA' in os.environ
+if is_snap:
+    CONFIG_DIR = os.path.join(os.environ['SNAP_USER_DATA'], 'config')
+else:
+    CONFIG_DIR = os.path.join(GLib.get_user_config_dir(), 'lutris')
 CONFIG_FILE = os.path.join(CONFIG_DIR, "lutris.conf")
-DATA_DIR = os.path.join(GLib.get_user_data_dir(), 'lutris')
+if is_snap:
+    DATA_DIR = os.path.join(os.environ['SNAP_USER_DATA'], 'data')
+else:
+    DATA_DIR = os.path.join(GLib.get_user_data_dir(), 'lutris')
 RUNNER_DIR = os.path.join(DATA_DIR, "runners")
 RUNTIME_DIR = os.path.join(DATA_DIR, "runtime")
-CACHE_DIR = os.path.join(GLib.get_user_cache_dir(), 'lutris')
+if is_snap:
+    CACHE_DIR = os.path.join(os.environ['SNAP_USER_DATA'], 'cache')
+else:
+    CACHE_DIR = os.path.join(GLib.get_user_cache_dir(), 'lutris')
 GAME_CONFIG_DIR = os.path.join(CONFIG_DIR, 'games')
 
 TMP_PATH = os.path.join(CACHE_DIR, 'tmp')
 BANNER_PATH = os.path.join(DATA_DIR, 'banners')
-ICON_PATH = os.path.join(GLib.get_user_data_dir(),
-                         'icons', 'hicolor', '32x32', 'apps')
+if is_snap:
+    ICON_PATH = os.path.join(os.environ['SNAP_USER_DATA'], 'data',
+                             'icons', 'hicolor', '32x32', 'apps')
+else:
+    ICON_PATH = os.path.join(GLib.get_user_data_dir(),
+                             'icons', 'hicolor', '32x32', 'apps')
 
 sio = SettingsIO(CONFIG_FILE)
 PGA_DB = sio.read_setting('pga_path') or os.path.join(DATA_DIR, 'pga.db')
