@@ -22,3 +22,7 @@ tests/coverage/*
 /dist
 /lutris.egg-info
 /lutris_*.snap
+/parts
+/prime
+/stage
+snap/.snapcraft

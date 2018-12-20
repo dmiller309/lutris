@@ -5,6 +5,7 @@
     <mapping directory="$PROJECT_DIR$/parts/desktop-gtk3/build" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/parts/desktop-gtk3/src" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/parts/lutris/build" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/parts/lutris/install" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/parts/lutris/src" vcs="Git" />
   </component>
 </project>
